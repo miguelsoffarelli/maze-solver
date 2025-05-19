@@ -39,7 +39,7 @@ class Line:
         canvas.create_line(self.point_a.x, self.point_a.y, self.point_b.x, self.point_b.y, fill=fill_color, width=2)
         
 class Cell:
-    def __init__(self, window):
+    def __init__(self, window=None):
         self.has_left_wall = True
         self.has_right_wall = True
         self.has_top_wall = True
@@ -95,4 +95,5 @@ class Cell:
         p1 = Point(from_x, from_y)
         p2 = Point(to_x, to_y)
         l = Line(p1, p2)
+        
         self.__win.draw_line(l, color)
