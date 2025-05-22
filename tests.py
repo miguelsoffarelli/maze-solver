@@ -72,7 +72,6 @@ class Tests(unittest.TestCase):
 
     def test_entrance_and_exit(self):
         m1 = Maze(0, 0, 5, 5, 10, 10)
-        m1._Maze__break_entrance_and_exit()
         self.assertEqual(
             m1._Maze__cells[0][0].has_top_wall,
             False,
@@ -81,6 +80,13 @@ class Tests(unittest.TestCase):
             m1._Maze__cells[m1._Maze__num_cols - 1][m1._Maze__num_rows - 1].has_bottom_wall,
             False,
         )
+
+    def test_reset_visited_cells(self):
+        m1 = Maze(0, 0, 5, 5, 10, 10)
+        for col in range(len(m1._Maze__cells)):
+            for cell in m1._Maze__cells[col]:
+                self.assertFalse(cell.visited)
+
 
 if __name__ == "__main__":
     unittest.main()
